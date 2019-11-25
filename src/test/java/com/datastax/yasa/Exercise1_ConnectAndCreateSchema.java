@@ -1,5 +1,7 @@
 package com.datastax.yasa;
 
+import java.nio.file.Paths;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,7 +30,11 @@ public class Exercise1_ConnectAndCreateSchema {
         LOGGER.info("Starting exercise 1...");
         
         // Change the line below to fill the builder object
-        try (CqlSession cqlSession = CqlSession.builder().build()) {
+        try (CqlSession cqlSession = CqlSession.builder()
+            .withAuthCredentials(ApolloConfiguration.USERNAME, ApolloConfiguration.PASSWORD)
+            .withKeyspace(ApolloConfiguration.KEYSPACENAME)
+            .withCloudSecureConnectBundle(Paths.get(ApolloConfiguration.PATH_TO_ZIP))
+            .build()) {
             // Show list of keyspaces in the logs
             LOGGER.info("Your Keyspace is " + cqlSession.getKeyspace().get().asInternal());
         }

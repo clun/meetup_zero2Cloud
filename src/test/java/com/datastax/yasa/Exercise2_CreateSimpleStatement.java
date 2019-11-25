@@ -33,7 +33,9 @@ public class Exercise2_CreateSimpleStatement {
      */
     private static SimpleStatement insertUserSimple(String firstName, String lastName, int age, String city, String email) {
         LOGGER.info(" + Insert {} {}", firstName, lastName);
-        return SimpleStatement.builder("<YOUR_STATEMENT>").build();
+        return SimpleStatement.builder("insert into users(lastname, firstname, age, city, email) "
+                + "VALUES(?,?,?,?,?)")
+                .addPositionalValues(lastName, firstName, age, city, email).build();
     }
     
     /** 
