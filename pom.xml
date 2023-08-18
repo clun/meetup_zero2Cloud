@@ -15,30 +15,29 @@
 	<properties>
 
 		<!-- DataStax Java-Driver -->
-		<dse-java-driver.version>2.3.0</dse-java-driver.version>
+		<astra-sdk.version>0.6.7</astra-sdk.version>
+		<cassandra-driver.version>4.17.0</cassandra-driver.version>
 
 		<!-- Third Parties -->
-		<logback.version>1.2.3</logback.version>
+		<logback.version>1.2.12</logback.version>
+		<slf4j.version>1.7.36</slf4j.version>
 		<retry4j.version>0.12.0</retry4j.version>
-		<netty.version>4.1.23.Final</netty.version>
-		<jackson-dataformat.version>2.9.6</jackson-dataformat.version>
-		<ff4j.version>1.8.1</ff4j.version>
+		<jackson-dataformat.version>2.15.2</jackson-dataformat.version>
 		<thymeleaf-layout-dialect.version>2.2.1</thymeleaf-layout-dialect.version>
 
 		<!-- Spring -->
-		<spring.version>5.0.7.RELEASE</spring.version>
-		<spring-boot.version>2.0.1.RELEASE</spring-boot.version>
+		<spring.version>5.3.29</spring.version>
+		<spring-boot.version>2.5.6</spring-boot.version>
 
 		<!-- Junit5 -->
-		<junit-platform.version>1.1.0</junit-platform.version>
-		<junit-jupiter.version>5.1.0</junit-jupiter.version>
+		<junit-platform.version>1.9.2</junit-platform.version>
+		<junit-jupiter.version>5.9.2</junit-jupiter.version>
 
 		<!-- Maven -->
-		<maven-compiler-plugin.source>1.8</maven-compiler-plugin.source>
-		<maven-compiler-plugin.target>1.8</maven-compiler-plugin.target>
+		<maven-compiler-plugin.source>11</maven-compiler-plugin.source>
+		<maven-compiler-plugin.target>11</maven-compiler-plugin.target>
 		<maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
 		<maven-surefire-plugin.version>2.21.0</maven-surefire-plugin.version>
-		<maven-os-plugin.version>1.5.0.Final</maven-os-plugin.version>
 
 	</properties>
 
@@ -47,70 +46,31 @@
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<dependencies>
 
-		<!-- DSE Driver v2 -->
 		<dependency>
-			<groupId>com.datastax.dse</groupId>
-			<artifactId>dse-java-driver-core</artifactId>
-			<version>${dse-java-driver.version}</version>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>com.datastax.dse</groupId>
-			<artifactId>dse-java-driver-query-builder</artifactId>
-			<version>${dse-java-driver.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.datastax.dse</groupId>
-			<artifactId>dse-java-driver-mapper-runtime</artifactId>
-			<version>${dse-java-driver.version}</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>com.datastax.dse</groupId>
-			<artifactId>dse-java-driver-mapper-runtime</artifactId>
-			<version>${dse-java-driver.version}</version>
-		</dependency>
-		
-		<!-- Spring* -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-core</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-aop</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-beans</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-expression</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		
-		
-        
-        
-
-		<!-- Logging -->
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
 			<version>${logback.version}</version>
 		</dependency>
+
 		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-core</artifactId>
-			<version>${logback.version}</version>
+			<groupId>com.datastax.astra</groupId>
+			<artifactId>astra-spring-boot-starter</artifactId>
+			<version>${astra-sdk.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.datastax.oss</groupId>
+			<artifactId>java-driver-query-builder</artifactId>
+			<version>${cassandra-driver.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.datastax.oss</groupId>
+			<artifactId>java-driver-mapper-runtime</artifactId>
+			<version>${cassandra-driver.version}</version>
 		</dependency>
 
 		<!-- SpringBoot -->
@@ -134,31 +94,6 @@
 
 		<!-- Junit 5 -->
 		<dependency>
-			<groupId>org.junit.platform</groupId>
-			<artifactId>junit-platform-launcher</artifactId>
-			<version>${junit-platform.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.junit.platform</groupId>
-			<artifactId>junit-platform-runner</artifactId>
-			<version>${junit-platform.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.junit.platform</groupId>
-			<artifactId>junit-platform-console-standalone</artifactId>
-			<version>${junit-platform.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-engine</artifactId>
-			<version>${junit-jupiter.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-params</artifactId>
-			<version>${junit-jupiter.version}</version>
-		</dependency>
-		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<version>${spring-boot.version}</version>
@@ -178,6 +113,16 @@
 			<artifactId>jackson-dataformat-csv</artifactId>
 			<version>${jackson-dataformat.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson-dataformat.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>${jackson-dataformat.version}</version>
+		</dependency>
 
 
 	</dependencies>
@@ -186,14 +131,6 @@
 	<!-- ~ BUILD ~ -->
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<build>
-
-		<extensions>
-			<extension>
-				<groupId>kr.motd.maven</groupId>
-				<artifactId>os-maven-plugin</artifactId>
-				<version>${maven-os-plugin.version}</version>
-			</extension>
-		</extensions>
 
 		<plugins>
 			<plugin>
@@ -223,18 +160,5 @@
 			</plugin>
 		</plugins>
 	</build>
-	
-	<repositories>
-        <repository>
-            <id>datastax-releases-public-local</id>
-            <url>https://repo.datastax.com/datastax-public-releases-local/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
 
 </project>

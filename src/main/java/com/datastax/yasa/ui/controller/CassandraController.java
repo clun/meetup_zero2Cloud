@@ -18,10 +18,10 @@ import com.datastax.oss.driver.api.core.CqlIdentifier;
 import com.datastax.oss.driver.api.core.cql.ResultSet;
 import com.datastax.oss.driver.api.core.cql.Row;
 import com.datastax.oss.driver.api.core.metadata.schema.ColumnMetadata;
-import com.datastax.yasa.dse.dao.CassandraDao;
-import com.datastax.yasa.dse.dto.TableColumn;
-import com.datastax.yasa.dse.dto.TableResult;
-import com.datastax.yasa.dse.dto.TableValue;
+import com.datastax.yasa.dao.CassandraDao;
+import com.datastax.yasa.dto.TableColumn;
+import com.datastax.yasa.dto.TableResult;
+import com.datastax.yasa.dto.TableValue;
 import com.datastax.yasa.ui.webbean.CassandraWebBean;
 
 @Controller

@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.datastax.yasa.dse.dto.TableResult;
+import com.datastax.yasa.dto.TableResult;
 
 /**
  * Bean behind the cassandra screen,

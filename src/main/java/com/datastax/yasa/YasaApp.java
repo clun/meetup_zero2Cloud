@@ -6,11 +6,6 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
-@ComponentScan(basePackages= { "com.datastax.yasa"} )
-@EnableAutoConfiguration( exclude = {
-        org.springframework.boot.autoconfigure.cassandra.CassandraAutoConfiguration.class,
-        org.springframework.boot.autoconfigure.data.cassandra.CassandraDataAutoConfiguration.class
-} )
 @SpringBootApplication
 public class YasaApp {
 
